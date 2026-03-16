@@ -22,6 +22,7 @@
       <div class="card-inner" id="cardInner">
         <!-- FRONT: Modern card with new effects -->
         <div class="card-face card-face-front cover-front">
+          <div class="rose-petals" id="rosePetals" aria-hidden="true"></div>
           <div class="cover-card-border" aria-hidden="true"></div>
           <div class="cover-bg">
             <div class="cover-pattern" aria-hidden="true"></div>
@@ -35,7 +36,7 @@
                 <img src="assets/ganesh-logo.png" alt="Ganesha" class="cover-ganesh-logo">
               </span>
               <p class="cover-label envelope-anim-text">You're Invited</p>
-              <h1 class="cover-names envelope-anim-names">Subhash <span class="cover-amp">&</span> Simran</h1>
+              <h1 class="cover-names envelope-anim-names">Subhash <span class="cover-amp"><img src="assets/heartlogo.png" alt="and" class="cover-amp-img" loading="eager"></span> Simran</h1>
               <div class="cover-divider envelope-anim-divider"></div>
               <p class="cover-tagline envelope-anim-tag">Tap below to open</p>
               <button type="button" class="cover-cta" id="openInvitation" aria-label="Open invitation"><span class="cover-cta-text">Open Invitation</span><span class="cover-cta-arrow" aria-hidden="true"> →</span></button>
@@ -91,7 +92,7 @@
                   <p class="parent-info">Son of</p>
                   <p class="parent-names">Mr Mohan Verma</p>
                 </div>
-                <div class="union-symbol">&</div>
+                <span class="cover-amp"><img src="assets/heartlogo.png" alt="and" class="cover-amp-img" loading="eager"></span>
                 <div class="name-bride">
                   <h2 class="name-large">Simran <span class="name-last">Verma</span></h2>
                   <p class="parent-info">Daughter of</p>
@@ -105,12 +106,12 @@
                 </div>
                 <div class="detail-item">
                   <span class="detail-label">Venue</span>
-                  <span class="detail-value">Village Bonashinga, Post Khorimahwa, PS RajDhanwar, District Giridih, Jharkhand — 825412</span>
+                  <span class="detail-value detail-value-venue">Village: Bonashinga<br>Post: Khorimahwa<br>PS: Rajdhanwar<br>District: Giridih,<br> Jharkhand – 825412</span>
                 </div>
               </div>
               <div class="host-info">
                 <p class="host-text">Invited by</p>
-                <p class="host-names">Mr Mohan Verma & Mr Sunil Verma<br><span class="host-names-sub">Together with their families</span></p>
+                <p class="host-names">Mr. Mohan Verma & the Verma Family<br><span class="host-names-sub">Together with their beloved families</span></p>
               </div>
             </div>
             <div class="decorative-bottom"></div>
@@ -118,7 +119,7 @@
 
           <!-- Countdown: Time Until Wedding (reference style) -->
           <section class="countdown-section section section-reveal" id="countdown">
-            <h2 class="countdown-section-title">Time Until Wedding</h2>
+            <h2 class="countdown-section-title">Countdown to Our Forever</h2>
             <div class="countdown-invite">
               <div class="countdown-invite-item">
                 <span class="countdown-invite-num" id="cdDays">0</span>
@@ -161,16 +162,13 @@
               <span class="section-head-line"></span>
             </div>
             <div class="venue-invite-card">
-              <p class="venue-invite-address"><strong>Village Bonashinga</strong><br>Post Khorimahwa, PS RajDhanwar<br>District Giridih, Jharkhand — 825412</p>
-              <a href="https://www.google.com/maps/search/Bonashinga+Giridih+Jharkhand+825412" target="_blank" rel="noopener" class="venue-invite-btn">Get Directions</a>
-            </div>
-            <div class="venue-map-qr-wrap">
-              <a href="https://www.google.com/maps/search/Bonashinga+Giridih+Jharkhand+825412" target="_blank" rel="noopener" class="venue-map-link" aria-label="Open in Maps">
-                <img src="assets/venue-map.jpg" alt="Wedding venue location" class="venue-map-img" loading="lazy" onerror="this.style.display='none'">
-                <span class="venue-map-placeholder">📍 Tap for location</span>
+              <a href="https://maps.app.goo.gl/mhJR91sbQw28LqGA6" target="_blank" rel="noopener" class="venue-map-card" aria-label="Open venue in Maps">
+                <img src="assets/map_view.png" alt="Wedding venue map" class="venue-map-card-img" loading="lazy">
               </a>
+          </div>
+            <div class="venue-map-qr-wrap">             
               <div class="venue-qr-card">
-                <a href="https://www.google.com/maps/search/Bonashinga+Giridih+Jharkhand+825412" target="_blank" rel="noopener" aria-label="Open venue in Maps">
+                <a href="https://maps.app.goo.gl/mhJR91sbQw28LqGA6" target="_blank" rel="noopener" aria-label="Open venue in Maps">
                   <img src="assets/Location_qr_code.png" alt="Scan for venue location" class="venue-qr-img" loading="lazy" onerror="this.style.display='none'">
                 </a>
                 <p class="venue-qr-label">Scan for location</p>
@@ -181,19 +179,15 @@
           <!-- RSVP -->
           <section class="rsvp-section section section-reveal" id="rsvp">
             <div class="section-head">
-              <span class="section-head-ico">✉️</span>
+              <span class="section-head-ico"><img src="assets/mail_logo.png" alt="" class="section-head-ico-img" aria-hidden="true"></span>
               <span class="section-head-title">RSVP</span>
               <span class="section-head-line"></span>
             </div>
-            <p class="rsvp-invite-text">Kindly confirm your attendance by 10 April 2026</p>
+            <p class="rsvp-invite-text">Kindly confirm your attendance</p>
             <form class="rsvp-form" action="#" method="post">
               <div class="form-row">
-                <label class="form-label">Your name(s)</label>
-                <input type="text" name="name" placeholder="Name" required>
-              </div>
-              <div class="form-row">
-                <label class="form-label">Email</label>
-                <input type="email" name="email" placeholder="Email" required>
+                <label class="form-label">Your Name</label>
+                <input type="text" name="name" placeholder="Enter Name" required>
               </div>
               <div class="form-row">
                 <label class="form-label">Will you attend?</label>
@@ -204,7 +198,7 @@
                 </select>
               </div>
               <div class="form-row">
-                <label class="form-label">Your wishes (optional)</label>
+                <label class="form-label">Your wishes</label>
                 <textarea name="message" placeholder="Blessings and wishes..." rows="3"></textarea>
               </div>
               <button type="submit" class="btn-submit">Send RSVP</button>
@@ -214,7 +208,7 @@
           <!-- Blessings placeholder -->
           <section class="blessings-section section section-reveal">
             <div class="section-head">
-              <span class="section-head-ico">🙏</span>
+              <span class="section-head-ico"><img src="assets/blessin_logo.png" alt="" class="section-head-ico-img" aria-hidden="true"></span>
               <span class="section-head-title">Blessings</span>
               <span class="section-head-line"></span>
             </div>
@@ -236,21 +230,13 @@
                 <img src="assets/qr_code.jpeg" alt="Scan to contribute" class="contribution-qr-img" loading="lazy" onerror="this.parentElement.classList.add('hidden')">
                 <p class="contribution-qr-text">Scan QR Code</p>
               </div>
-              <div class="contribution-upi-wrap">
-                <p class="contribution-upi-label">UPI ID</p>
-                <div class="contribution-upi-box" id="contribution-upi-box">
-                  <span class="contribution-upi-id" id="contribution-upi-id">Your-UPI@id</span>
-                  <span class="contribution-upi-copy" id="contribution-upi-copy" aria-label="Copy">📋</span>
-                </div>
-                <p class="contribution-upi-hint">Tap to copy</p>
-              </div>
             </div>
             <p class="contribution-note">Your love and blessings are our greatest gift</p>
           </section>
 
           <!-- Footer (reference style: Om + names + date) -->
           <footer class="footer footer-invite footer-reveal">
-            <span class="footer-om" aria-hidden="true">🕉️</span>
+            <span class="footer-om" aria-hidden="true"><img src="assets/om_logo.png" alt="Om" class="footer-om-img"></span>
             <p class="footer-names">Subhash & Simran</p>
             <p class="footer-date">20 April 2026</p>
             <p class="footer-note">Your presence is our blessing</p>
