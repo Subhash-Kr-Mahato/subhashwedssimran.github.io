@@ -70,7 +70,7 @@
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      alert('Thank you! Your response has been recorded. (Connect this form to Formspree or your backend.)');
+      alert('Thank you!');
       form.reset();
     });
   }
@@ -142,6 +142,49 @@
   }
   makeLogoTransparent();
   window.addEventListener('load', makeLogoTransparent);
+
+  // Falling rose petals on cover
+  (function createRosePetals() {
+    var container = document.getElementById('rosePetals');
+    if (!container) return;
+    var petalCount = 18;
+    var colors = [
+      'rgba(210, 80, 95, 0.85)',
+      'rgba(190, 60, 75, 0.8)',
+      'rgba(225, 105, 115, 0.82)',
+      'rgba(180, 50, 65, 0.78)',
+      'rgba(230, 130, 140, 0.8)'
+    ];
+    for (var i = 0; i < petalCount; i++) {
+      var petal = document.createElement('span');
+      petal.className = 'rose-petal';
+      var size = 10 + Math.random() * 12;
+      var left = Math.random() * 100;
+      var delay = Math.random() * 8;
+      var duration = 6 + Math.random() * 6;
+      var swayDur = 3 + Math.random() * 4;
+      var color = colors[Math.floor(Math.random() * colors.length)];
+      petal.style.cssText =
+        'left:' + left + '%;' +
+        'width:' + size + 'px;' +
+        'height:' + size + 'px;' +
+        'background:' + color + ';' +
+        'animation-duration:' + duration + 's;' +
+        'animation-delay:' + delay + 's;' +
+        'animation-name:petal-fall,petal-sway;' +
+        'animation-timing-function:linear,ease-in-out;' +
+        'animation-iteration-count:infinite,infinite;' +
+        'animation-duration:' + duration + 's,' + swayDur + 's;' +
+        'animation-delay:' + delay + 's,' + delay + 's;';
+      container.appendChild(petal);
+    }
+    var sceneEl = document.getElementById('cardScene');
+    if (sceneEl) {
+      new MutationObserver(function () {
+        container.style.display = sceneEl.classList.contains('opened') ? 'none' : '';
+      }).observe(sceneEl, { attributes: true, attributeFilter: ['class'] });
+    }
+  })();
 
   // UPI copy on tap
   var upiBox = document.getElementById('contribution-upi-box');
