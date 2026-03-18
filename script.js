@@ -1,6 +1,19 @@
 (function () {
   'use strict';
 
+  // Language toggle
+  var langToggle = document.getElementById('langToggle');
+  if (langToggle) {
+    langToggle.addEventListener('click', function () {
+      var isEnglish = window.location.pathname.indexOf('hindi.html') === -1;
+      if (isEnglish) {
+        window.location.href = 'hindi.html';
+      } else {
+        window.location.href = 'index.html';
+      }
+    });
+  }
+
   var scene = document.getElementById('cardScene');
   var openBtn = document.getElementById('openInvitation');
   var frontFace = document.querySelector('.card-face-front');
@@ -66,12 +79,75 @@
     });
   });
 
+  // ── RSVP → Google Sheet ──
+  // PASTE YOUR DEPLOYED GOOGLE APPS SCRIPT URL BELOW
+  var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyvJUd7TIT28PYeWqX7s-oeDFPhIJYzp3TVb_MaHmPDghwIm9JXtJMm_U2CBfIU7Jwycw/exec';
+
   var form = document.querySelector('.rsvp-form');
   if (form) {
+    var savedRsvp = localStorage.getItem('rsvp_submitted');
+    if (savedRsvp) {
+      try {
+        var data = JSON.parse(savedRsvp);
+        var btn = form.querySelector('.btn-submit');
+        if (btn) { btn.textContent = 'RSVP Sent ✓'; btn.disabled = true; btn.style.opacity = '0.7'; }
+        var nameInput = form.querySelector('input[name="name"]');
+        var attendSelect = form.querySelector('select[name="attendance"]');
+        var msgTextarea = form.querySelector('textarea[name="message"]');
+        if (nameInput) { nameInput.value = data.name || ''; nameInput.readOnly = true; }
+        if (attendSelect) { attendSelect.value = data.attendance || ''; attendSelect.disabled = true; }
+        if (msgTextarea) { msgTextarea.value = data.message || ''; msgTextarea.readOnly = true; }
+        var resetBtn = document.getElementById('rsvpReset');
+        if (resetBtn) resetBtn.style.display = '';
+      } catch (err) {}
+    }
+    var rsvpResetBtn = document.getElementById('rsvpReset');
+    if (rsvpResetBtn) {
+      rsvpResetBtn.addEventListener('click', function () {
+        localStorage.removeItem('rsvp_submitted');
+        form.reset();
+        var btn = form.querySelector('.btn-submit');
+        var isHindi = document.documentElement.lang === 'hi';
+        if (btn) { btn.textContent = isHindi ? 'भेजें' : 'Send RSVP'; btn.disabled = false; btn.style.opacity = ''; }
+        form.querySelector('input[name="name"]').readOnly = false;
+        form.querySelector('select[name="attendance"]').disabled = false;
+        form.querySelector('textarea[name="message"]').readOnly = false;
+        rsvpResetBtn.style.display = 'none';
+      });
+    }
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      alert('Thank you!');
-      form.reset();
+      var name = (form.querySelector('input[name="name"]').value || '').trim();
+      var attendance = form.querySelector('select[name="attendance"]').value;
+      var message = (form.querySelector('textarea[name="message"]').value || '').trim();
+      if (!name) return;
+      var btn = form.querySelector('.btn-submit');
+      var rsvpData = {
+        name: name,
+        attendance: attendance,
+        message: message,
+        timestamp: new Date().toISOString()
+      };
+      localStorage.setItem('rsvp_submitted', JSON.stringify(rsvpData));
+      var allRsvps = [];
+      try { allRsvps = JSON.parse(localStorage.getItem('rsvp_all') || '[]'); } catch (err) {}
+      allRsvps.push(rsvpData);
+      localStorage.setItem('rsvp_all', JSON.stringify(allRsvps));
+      if (btn) { btn.textContent = 'RSVP Sent ✓'; btn.disabled = true; btn.style.opacity = '0.7'; }
+      form.querySelector('input[name="name"]').readOnly = true;
+      form.querySelector('select[name="attendance"]').disabled = true;
+      form.querySelector('textarea[name="message"]').readOnly = true;
+      var resetBtn = document.getElementById('rsvpReset');
+      if (resetBtn) resetBtn.style.display = '';
+      alert('Thank you, ' + name + '! Your RSVP has been saved.');
+      if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+        fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(rsvpData)
+        }).catch(function () {});
+      }
     });
   }
 
@@ -147,7 +223,8 @@
   (function createRosePetals() {
     var container = document.getElementById('rosePetals');
     if (!container) return;
-    var petalCount = 18;
+    var isMobile = window.innerWidth <= 480;
+    var petalCount = isMobile ? 8 : 18;
     var colors = [
       'rgba(210, 80, 95, 0.85)',
       'rgba(190, 60, 75, 0.8)',
