@@ -16,6 +16,13 @@
     <source src="https://res.cloudinary.com/depixc8dq/video/upload/v1767377333/aamantran%20tracks%20assets/track_2_jigjv8.mp3" type="audio/mpeg">
   </audio>
 
+  <!-- Language toggle -->
+  <div class="lang-toggle" id="langToggle" aria-label="Switch language">
+    <span class="lang-toggle-label lang-active">EN</span>
+    <span class="lang-toggle-switch"><span class="lang-toggle-knob"></span></span>
+    <span class="lang-toggle-label">हिं</span>
+  </div>
+
   <!-- Aamantran-style: 3D card that opens on tap -->
   <div class="card-scene" id="cardScene">
     <div class="card-3d" id="card3d">
@@ -90,13 +97,13 @@
                 <div class="name-groom">
                   <h2 class="name-large">Subhash Kr <span class="name-last">Verma</span></h2>
                   <p class="parent-info">Son of</p>
-                  <p class="parent-names">Mr Mohan Verma</p>
+                  <p class="parent-names">Mr. Mohan & Mrs. Pramila Verma</p>
                 </div>
                 <span class="cover-amp"><img src="assets/heartlogo.png" alt="and" class="cover-amp-img" loading="eager"></span>
                 <div class="name-bride">
                   <h2 class="name-large">Simran <span class="name-last">Verma</span></h2>
                   <p class="parent-info">Daughter of</p>
-                  <p class="parent-names">Mr Sunil Verma</p>
+                  <p class="parent-names">Mr. Sunil & Mrs. Pratima Verma</p>
                 </div>
               </div>
               <div class="wedding-details">
@@ -111,7 +118,7 @@
               </div>
               <div class="host-info">
                 <p class="host-text">Invited by</p>
-                <p class="host-names">Mr. Mohan Verma & the Verma Family<br><span class="host-names-sub">Together with their beloved families</span></p>
+                <p class="host-names">Mr. Mohan & Mrs. Pramila Verma<br><span class="host-names-sub">Together with their beloved families</span></p>
               </div>
             </div>
             <div class="decorative-bottom"></div>
@@ -202,6 +209,7 @@
                 <textarea name="message" placeholder="Blessings and wishes..." rows="3"></textarea>
               </div>
               <button type="submit" class="btn-submit">Send RSVP</button>
+              <button type="button" class="btn-rsvp-reset" id="rsvpReset" style="display:none;">+ Add Another RSVP</button>
             </form>
           </section>
 
@@ -213,7 +221,7 @@
               <span class="section-head-line"></span>
             </div>
             <div class="blessings-wall" id="blessings-wall">
-              <p class="blessings-placeholder">Your blessings mean the world to us</p>
+              <p class="blessings-placeholder">Your blessings are truly precious to us, and we humbly cherish them.</p>
             </div>
           </section>
 
@@ -221,31 +229,43 @@
           <section class="contribution-section section section-reveal">
             <div class="section-head">
               <span class="section-head-ico">💝</span>
-              <span class="section-head-title">Contribution</span>
+              <span class="section-head-title">Your Blessings & Support</span>
               <span class="section-head-line"></span>
             </div>
-            <p class="contribution-subtitle">Your blessings are precious to us</p>
             <div class="contribution-inner">
               <div class="contribution-qr-wrap">
                 <img src="assets/qr_code.jpeg" alt="Scan to contribute" class="contribution-qr-img" loading="lazy" onerror="this.parentElement.classList.add('hidden')">
                 <p class="contribution-qr-text">Scan QR Code</p>
               </div>
             </div>
-            <p class="contribution-note">Your love and blessings are our greatest gift</p>
+            <p class="contribution-note">Your love and blessings are our greatest gift, and we humbly treasure them with all our hearts.</p>
           </section>
 
           <!-- Footer (reference style: Om + names + date) -->
-          <footer class="footer footer-invite footer-reveal">
-            <span class="footer-om" aria-hidden="true"><img src="assets/om_logo.png" alt="Om" class="footer-om-img"></span>
-            <p class="footer-names">Subhash & Simran</p>
-            <p class="footer-date">20 April 2026</p>
-            <p class="footer-note">Your presence is our blessing</p>
+          <footer class="footer footer-invite footer-reveal">            
+            <div class="footer-couple-card">
+              <span class="footer-om" aria-hidden="true"><img src="assets/om_logo.png" alt="Om" class="footer-om-img"></span>
+              <div class="couple-card">                
+                <div class="couple-card-frame">
+                  <img src="assets/groom_bride_logo.png" alt="Subhash & Simran" class="couple-card-img" loading="lazy">
+                </div>
+                <div class="couple-card-text">
+                  <p class="couple-card-quote">Two souls, one heart — bound together in love forever</p>
+                  <p class="couple-card-names">Subhash & Simran</p>
+                  <p class="couple-card-date">20 April 2026</p>
+                </div>
+              </div>
+            </div>
+            <p class="footer-note">Your presence is a blessing to us, and it means more than words can express.</p>
           </footer>
 
           <!-- Digital invitation footer -->
           <div class="digital-footer section-reveal">
             <p class="digital-footer-text">Digital Invitation</p>
             <p class="digital-footer-copy">© 2026 — Subhash & Simran</p>
+            <div class="digital-footer-sign">
+              <img src="assets/sign_pic.png" alt="Signature" class="digital-footer-sign-img" loading="lazy">
+            </div>
           </div>
           </div>
         </div>
@@ -256,3 +276,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
