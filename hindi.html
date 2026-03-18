@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>सुभाष & सिमरन — शादी का निमंत्रण</title>
+  <meta name="description" content="आप सादर आमंत्रित हैं सुभाष और सिमरन की शादी में — 20 अप्रैल 2026">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&family=Italiana&family=Montserrat:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .hindi-text { font-family: 'Noto Sans Devanagari', var(--font-sans); }
+    @media (max-width: 480px) {
+      .cover-cta { padding: 13px 3.1rem; }
+    }
+  </style>
+</head>
+<body>
+  <audio id="bgMusic" loop preload="none">
+    <source src="music.mp3" type="audio/mpeg">
+    <source src="https://res.cloudinary.com/depixc8dq/video/upload/v1767377333/aamantran%20tracks%20assets/track_2_jigjv8.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Language toggle -->
+  <div class="lang-toggle hindi" id="langToggle" aria-label="Switch language">
+    <span class="lang-toggle-label">EN</span>
+    <span class="lang-toggle-switch"><span class="lang-toggle-knob"></span></span>
+    <span class="lang-toggle-label lang-active">हिं</span>
+  </div>
+
+  <!-- Aamantran-style: 3D card that opens on tap -->
+  <div class="card-scene" id="cardScene">
+    <div class="card-3d" id="card3d">
+      <div class="card-inner" id="cardInner">
+        <!-- FRONT: Modern card with new effects -->
+        <div class="card-face card-face-front cover-front">
+          <div class="rose-petals" id="rosePetals" aria-hidden="true"></div>
+          <div class="cover-card-border" aria-hidden="true"></div>
+          <div class="cover-bg">
+            <div class="cover-pattern" aria-hidden="true"></div>
+            <div class="cover-shine" aria-hidden="true"></div>
+            <div class="cover-gradient"></div>
+          </div>
+          <div class="cover-frame">
+            <div class="cover-frame-ring" aria-hidden="true"></div>
+            <div class="cover-frame-inner">
+              <span class="cover-ganesh-wrap envelope-anim-text" aria-hidden="true">
+                <img src="assets/ganesh-logo.png" alt="गणेश" class="cover-ganesh-logo">
+              </span>
+              <p class="cover-label envelope-anim-text hindi-text">आप आमंत्रित हैं</p>
+              <h1 class="cover-names envelope-anim-names hindi-text">सुभाष <span class="cover-amp"><img src="assets/heartlogo.png" alt="और" class="cover-amp-img" loading="eager"></span> सिमरन</h1>
+              <div class="cover-divider envelope-anim-divider"></div>
+              <p class="cover-tagline envelope-anim-tag hindi-text">निमंत्रण खोलने हेतु नीचे स्पर्श करें</p>
+              <button type="button" class="cover-cta" id="openInvitation" aria-label="निमंत्रण खोलें"><span class="cover-cta-text hindi-text">निमंत्रण खोलें</span><span class="cover-cta-arrow" aria-hidden="true"> →</span></button>
+            </div>
+          </div>
+          <div class="cover-tagline-wrap envelope-anim-site">
+            <div class="cover-tagline-pattern" aria-hidden="true"></div>
+            <p class="cover-site hindi-text">सुभाष संग सिमरन</p>
+          </div>
+        </div>
+
+        <!-- BACK: Full invitation (revealed when card flips) -->
+        <div class="card-face card-face-back">
+          <div class="invite-bg" aria-hidden="true">
+            <div class="invite-pattern"></div>
+            <div class="invite-gradient"></div>
+          </div>
+          <div class="invite-content">
+
+          <!-- Header -->
+          <header class="inv-header">
+            <img src="assets/ganesh-logo.png" alt="गणेश" class="inv-ganesh">
+            <h1 class="inv-mantra hindi-text">ॐ श्री गणेशाय नमः</h1>
+            <p class="inv-label hindi-text">शुभ निमंत्रण</p>
+          </header>
+
+          <!-- Couple section -->
+          <section class="couple-images-section section">
+            <div class="couple-images-container">
+              <div class="couple-image-box groom-image-box">
+                <img src="assets/groom_logo.png" alt="सुभाष कुमार वर्मा" class="couple-image" loading="lazy">
+              </div>
+              <div class="couple-image-box bride-image-box">
+                <img src="assets/bride_logo.png" alt="सिमरन वर्मा" class="couple-image" loading="lazy">
+              </div>             
+            </div>
+            <div class="couple-section-separator" aria-hidden="true">
+              <span class="separator-line separator-line-left"></span>
+              <span class="separator-motive">✦</span>
+              <span class="separator-line separator-line-right"></span>
+            </div>
+          </section>
+
+          <!-- Invitation section -->
+          <section class="invitation-section section section-reveal">
+            <div class="decorative-top"></div>
+            <div class="main-content">
+              <p class="invitation-text hindi-text">हम आपको और आपके परिवार को<br>इस शुभ विवाह में सादर आमंत्रित करते हैं</p>
+              <div class="couple-names">
+                <div class="name-groom">
+                  <h2 class="name-large hindi-text">सुभाष कुमार <span class="name-last">वर्मा</span></h2>
+                  <p class="parent-info hindi-text">पुत्र</p>
+                  <p class="parent-names hindi-text">श्री मोहन & श्रीमती प्रमिला वर्मा</p>
+                </div>
+                <span class="cover-amp"><img src="assets/heartlogo.png" alt="और" class="cover-amp-img" loading="eager"></span>
+                <div class="name-bride">
+                  <h2 class="name-large hindi-text">सिमरन <span class="name-last">वर्मा</span></h2>
+                  <p class="parent-info hindi-text">पुत्री</p>
+                  <p class="parent-names hindi-text">श्री सुनील & श्रीमती प्रतिमा वर्मा</p>
+                </div>
+              </div>
+              <div class="wedding-details">
+                <div class="detail-item">
+                  <span class="detail-label hindi-text">विवाह तिथि</span>
+                  <span class="detail-value hindi-text">20 अप्रैल 2026</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-label hindi-text">स्थान</span>
+                  <span class="detail-value detail-value-venue hindi-text">गाँव: बोनासिंगा<br>पोस्ट: खोरीमहुआ<br>थाना: राजधनवार<br>जिला: गिरिडीह,<br> झारखंड – 825412</span>
+                </div>
+              </div>
+              <div class="host-info">
+                <p class="host-text hindi-text">निमंत्रक</p>
+                <p class="host-names hindi-text">श्री मोहन & श्रीमती प्रमिला वर्मा <br><span class="host-names-sub hindi-text">अपने समस्त परिवार सहित</span></p>
+              </div>
+            </div>
+            <div class="decorative-bottom"></div>
+          </section>
+
+          <!-- Countdown -->
+          <section class="countdown-section section section-reveal" id="countdown">
+            <h2 class="countdown-section-title hindi-text">विवाह मुहूर्त तक का समय</h2>
+            <div class="countdown-invite">
+              <div class="countdown-invite-item">
+                <span class="countdown-invite-num" id="cdDays">0</span>
+                <span class="countdown-invite-label hindi-text">दिन</span>
+              </div>
+              <span class="countdown-invite-sep">:</span>
+              <div class="countdown-invite-item">
+                <span class="countdown-invite-num" id="cdHours">0</span>
+                <span class="countdown-invite-label hindi-text">घंटे</span>
+              </div>
+              <span class="countdown-invite-sep">:</span>
+              <div class="countdown-invite-item">
+                <span class="countdown-invite-num" id="cdMins">0</span>
+                <span class="countdown-invite-label hindi-text">मिनट</span>
+              </div>
+              <span class="countdown-invite-sep">:</span>
+              <div class="countdown-invite-item">
+                <span class="countdown-invite-num" id="cdSecs">0</span>
+                <span class="countdown-invite-label hindi-text">सेकंड</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Calendar: April 2026 -->
+          <section class="calendar-section section section-reveal">
+            <h2 class="calendar-section-title hindi-text">अप्रैल 2026</h2>
+            <div class="calendar-wrap">
+              <div class="calendar-head">
+                <span class="cal-day hindi-text">रवि</span><span class="cal-day hindi-text">सोम</span><span class="cal-day hindi-text">मंगल</span><span class="cal-day hindi-text">बुध</span><span class="cal-day hindi-text">गुरु</span><span class="cal-day hindi-text">शुक्र</span><span class="cal-day hindi-text">शनि</span>
+              </div>
+              <div class="calendar-grid" id="calendar-grid"></div>
+            </div>
+          </section>
+
+          <!-- Venue / Map -->
+          <section class="venue-section section section-reveal" id="venue">
+            <div class="section-head">
+              <span class="section-head-ico">📍</span>
+              <span class="section-head-title hindi-text">विवाह स्थल</span>
+              <span class="section-head-line"></span>
+            </div>
+            <div class="venue-invite-card">
+              <a href="https://maps.app.goo.gl/mhJR91sbQw28LqGA6" target="_blank" rel="noopener" class="venue-map-card" aria-label="मैप में खोलें">
+                <img src="assets/map_view.png" alt="विवाह स्थल का नक्शा" class="venue-map-card-img" loading="lazy">
+              </a>
+          </div>
+            <div class="venue-map-qr-wrap">             
+              <div class="venue-qr-card">
+                <a href="https://maps.app.goo.gl/mhJR91sbQw28LqGA6" target="_blank" rel="noopener" aria-label="मैप में खोलें">
+                  <img src="assets/Location_qr_code.png" alt="स्थान के लिए स्कैन करें" class="venue-qr-img" loading="lazy" onerror="this.style.display='none'">
+                </a>
+                <p class="venue-qr-label hindi-text">स्थान के लिए स्कैन करें</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- RSVP -->
+          <section class="rsvp-section section section-reveal" id="rsvp">
+            <div class="section-head">
+              <span class="section-head-ico"><img src="assets/mail_logo.png" alt="" class="section-head-ico-img" aria-hidden="true"></span>
+              <span class="section-head-title hindi-text">उपस्थिति पुष्टि</span>
+              <span class="section-head-line"></span>
+            </div>
+            <p class="rsvp-invite-text hindi-text">कृपया अपनी उपस्थिति की पुष्टि करें</p>
+            <form class="rsvp-form" action="#" method="post">
+              <div class="form-row">
+                <label class="form-label hindi-text">आपका नाम</label>
+                <input type="text" name="name" placeholder="नाम लिखें" required>
+              </div>
+              <div class="form-row">
+                <label class="form-label hindi-text">क्या आप आएंगे?</label>
+                <select name="attendance">
+                  <option value="">चुनें</option>
+                  <option value="yes">हर्षपूर्वक स्वीकार</option>
+                  <option value="no">खेदपूर्वक अस्वीकार</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label class="form-label hindi-text">आपकी शुभकामनाएं</label>
+                <textarea name="message" placeholder="आशीर्वाद और शुभकामनाएं..." rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn-submit hindi-text">भेजें</button>
+              <button type="button" class="btn-rsvp-reset" id="rsvpReset" style="display:none;">+ एक और RSVP जोड़ें</button>
+            </form>
+          </section>
+
+          <!-- Blessings -->
+          <section class="blessings-section section section-reveal">
+            <div class="section-head">
+              <span class="section-head-ico"><img src="assets/blessin_logo.png" alt="" class="section-head-ico-img" aria-hidden="true"></span>
+              <span class="section-head-title hindi-text">आशीर्वाद</span>
+              <span class="section-head-line"></span>
+            </div>
+            <div class="blessings-wall" id="blessings-wall">
+              <p class="blessings-placeholder hindi-text">आपका आशीर्वाद हमारे लिए अत्यंत अनमोल है, जिसे हम विनम्रतापूर्वक हृदय से सहेजते हैं</p>
+            </div>
+          </section>
+
+          <!-- Contribution -->
+          <section class="contribution-section section section-reveal">
+            <div class="section-head">
+              <span class="section-head-ico">💝</span>
+              <span class="section-head-title hindi-text">आपका आशीर्वाद एवं सहयोग</span>
+              <span class="section-head-line"></span>
+            </div>
+            <div class="contribution-inner">
+              <div class="contribution-qr-wrap">
+                <img src="assets/qr_code.jpeg" alt="योगदान के लिए स्कैन करें" class="contribution-qr-img" loading="lazy" onerror="this.parentElement.classList.add('hidden')">
+                <p class="contribution-qr-text hindi-text">QR कोड स्कैन करें</p>
+              </div>
+            </div>
+            <p class="contribution-note hindi-text">आपका प्रेम और आशीर्वाद हमारे लिए सबसे बड़ा उपहार है, जिसे हम विनम्रतापूर्वक पूरे हृदय से संजोकर रखते हैं</p>
+          </section>
+
+          <!-- Footer -->
+          <footer class="footer footer-invite footer-reveal">           
+            <div class="footer-couple-card">
+              <div class="couple-card">
+                <span class="footer-om" aria-hidden="true"><img src="assets/om_logo.png" alt="ॐ" class="footer-om-img"></span>
+                <div class="couple-card-frame">
+                  <img src="assets/groom_bride_logo.png" alt="सुभाष और सिमरन" class="couple-card-img" loading="lazy">
+                </div>
+                <div class="couple-card-text">
+                  <p class="couple-card-quote hindi-text">दो आत्माएं, एक हृदय — प्रेम के बंधन में सदा के लिए बंधे</p>
+                  <p class="couple-card-names hindi-text">सुभाष & सिमरन</p>
+                  <p class="couple-card-date hindi-text">20 अप्रैल 2026</p>
+                </div>
+              </div>
+            </div>
+            <p class="footer-note hindi-text">आपकी उपस्थिति हमारे लिए आशीर्वाद है, जिसका महत्व शब्दों में व्यक्त करना संभव नहीं है</p>
+          </footer>
+
+          <!-- Digital invitation footer -->
+          <div class="digital-footer section-reveal">
+            <p class="digital-footer-text hindi-text">डिजिटल निमंत्रण</p>
+            <p class="digital-footer-copy">© 2026 — सुभाष & सिमरन</p>
+            <div class="digital-footer-sign">
+              <img src="assets/sign_pic.png" alt="Signature" class="digital-footer-sign-img" loading="lazy">
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
